@@ -8,7 +8,7 @@ const getAllProducts = async (req, res) => {
   } catch (error) {
     res.json({
       success: true,
-      message: "Something went wrong please try again in a few seconds",
+      message: "Something went wrong, could not get all products",
       error: error.message,
     });
   }
@@ -21,7 +21,7 @@ const getOneProduct = async (req, res) => {
   } catch (error) {
     res.json({
       success: true,
-      message: "Something went wrong please try again in a few seconds",
+      message: "Something went wrong, could not get the specified product",
       error: error.message,
     });
   }
@@ -42,7 +42,7 @@ const addOneProduct = async (req, res) => {
   } catch (error) {
     res.json({
       success: true,
-      message: "Something went wrong please try again in a few seconds",
+      message: "Something went wrong, could not create new product",
       error: error.message,
     });
   }
@@ -60,7 +60,7 @@ const updateOneProduct = async (req, res) => {
   } catch (error) {
     res.json({
       success: true,
-      message: "Something went wrong please try again in a few seconds",
+      message: "Something went wrong, could not update the specified product",
       error: error.message,
     });
   }
@@ -76,7 +76,7 @@ const deleteOneProduct = async (req, res) => {
   } catch (error) {
     res.json({
       success: true,
-      message: "Something went wrong please try again in a few seconds",
+      message: "Something went wrong, could not delete the specified product",
       error: error.message,
     });
   }

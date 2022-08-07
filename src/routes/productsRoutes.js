@@ -9,6 +9,8 @@ const {
   deleteOneProduct,
 } = require("../controllers/productsController");
 
+routes.get("/", (req, res) => res.json({ status: "online" }));
+
 routes.get("/products", getAllProducts);
 
 routes.get("/product/:id", getOneProduct);
