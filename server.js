@@ -14,8 +14,4 @@ app.use(express.json());
 
 app.use("/", routes);
 
-app.set("port", process.env.PORT || 4000);
-
-app.listen(app.get("port"), () =>
-  console.log("Server running on port:", app.get("port"))
-);
+app.listen(PORT, () => console.log("Server running on port:", PORT));
