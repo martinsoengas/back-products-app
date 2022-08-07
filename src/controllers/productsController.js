@@ -56,7 +56,7 @@ const updateOneProduct = async (req, res) => {
       { new: true }
     );
 
-    res.status(200).send("Product succesfully updated");
+    res.status(200).json({ message: "Product succesfully updated" });
   } catch (error) {
     res.json({
       success: true,
@@ -72,7 +72,7 @@ const deleteOneProduct = async (req, res) => {
       _id: req.params.id,
     });
 
-    res.status(200).send("Product succesfully deleted");
+    res.status(200).json({ message: "Product succesfully deleted" });
   } catch (error) {
     res.json({
       success: true,
