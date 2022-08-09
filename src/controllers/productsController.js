@@ -1,5 +1,6 @@
 const { findById } = require("../models/Product");
 const Product = require("../models/Product");
+const jwt = require("jsonwebtoken");
 
 const getAllProducts = async (req, res) => {
   try {
@@ -82,10 +83,25 @@ const deleteOneProduct = async (req, res) => {
   }
 };
 
+const login = (req, res) => {
+  if (!req.body.email || !req.body.password) {
+    return res.status(401).json({ message: "Please fill user and password" });
+  }
+
+  const user = {
+    email: req.body.email,
+    password: req.body.password,
+  };
+
+  const token = jwt.sign(user, "testSecret");
+  res.status(200).json({ token });
+};
+
 module.exports = {
   getAllProducts,
   getOneProduct,
   addOneProduct,
   updateOneProduct,
   deleteOneProduct,
+  login,
 };

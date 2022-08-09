@@ -7,6 +7,7 @@ const {
   addOneProduct,
   updateOneProduct,
   deleteOneProduct,
+  login,
 } = require("../controllers/productsController");
 
 routes.get("/", (req, res) => res.json({ status: "online" }));
@@ -20,5 +21,7 @@ routes.post("/new-product", addOneProduct);
 routes.patch("/product/:id", updateOneProduct);
 
 routes.delete("/product/:id", deleteOneProduct);
+
+routes.post("/login", login);
 
 module.exports = routes;
