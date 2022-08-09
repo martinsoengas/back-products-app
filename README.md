@@ -1,3 +1,7 @@
+# Proyect in progress...
+
+/login endpoint, 'user' validation and authentication in progress.
+
 # Getting Started with this Products App (Back end)
 
 This project was created ussing NodeJs and Express.\
