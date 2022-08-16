@@ -1,5 +1,6 @@
 const { findById } = require("../models/Product");
 const Product = require("../models/Product");
+const User = require("../models/User");
 
 const getAllProducts = async (req, res) => {
   try {
@@ -7,7 +8,6 @@ const getAllProducts = async (req, res) => {
     res.status(200).send(products);
   } catch (error) {
     res.json({
-      success: true,
       message: "Something went wrong, could not get all products",
       error: error.message,
     });
@@ -20,7 +20,6 @@ const getOneProduct = async (req, res) => {
     res.status(200).send(product);
   } catch (error) {
     res.json({
-      success: true,
       message: "Something went wrong, could not get the specified product",
       error: error.message,
     });
@@ -29,6 +28,8 @@ const getOneProduct = async (req, res) => {
 
 const addOneProduct = async (req, res) => {
   try {
+    const user = await User.findById(req.user._id);
+
     const { name, description, image_url, price } = req.body;
     const productAdded = await Product.create({
       name,
@@ -41,7 +42,6 @@ const addOneProduct = async (req, res) => {
       .json({ message: "Product succesfully created", productAdded });
   } catch (error) {
     res.json({
-      success: true,
       message: "Something went wrong, could not create new product",
       error: error.message,
     });
@@ -59,7 +59,6 @@ const updateOneProduct = async (req, res) => {
     res.status(200).json({ message: "Product succesfully updated" });
   } catch (error) {
     res.json({
-      success: true,
       message: "Something went wrong, could not update the specified product",
       error: error.message,
     });
@@ -75,7 +74,6 @@ const deleteOneProduct = async (req, res) => {
     res.status(200).json({ message: "Product succesfully deleted" });
   } catch (error) {
     res.json({
-      success: true,
       message: "Something went wrong, could not delete the specified product",
       error: error.message,
     });
