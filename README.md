@@ -1,7 +1,3 @@
-# Proyect in progress...
-
-/login endpoint, 'user' validation and authentication in progress.
-
 # Getting Started with this Products App (Back end)
 
 This project was created ussing NodeJs and Express.\
@@ -11,6 +7,8 @@ This app is up and running on Heroku.
 ## Features of this app
 
 This project has an several endpoints to products and product creation, so you can connect to the MongoDB database and send/receive the data requested.
+There are also endpoints for user login, logout, token refresh and user creation.
+Admins can access to view, edit, delete and create products, while users can only see the products an their the details.
 
 ## Setting up local environment
 
@@ -22,7 +20,7 @@ Then you can run:
 
 Runs the app in the port 4000 (localhost:4000). You can change the port in the server.js file.
 
-## Available endpoints
+## Available endpoints (products)
 
 **/products** endpoint with a GET request returns all available products on the database in an array.\
 **/products/:id** endpoint with a GET request returns the product by its 'id'.\
@@ -31,6 +29,13 @@ Runs the app in the port 4000 (localhost:4000). You can change the port in the s
 **/new-product**endpoint with a POST request is used to create a new product on the database.\
 
 You can get more info [here](https://documenter.getpostman.com/view/12738432/VUjMoRBe)
+
+## Available endpoints (users)
+
+**/login** endpoint with a POST request logins the user, returns a token and a refresh token .\
+**/logout** endpoint with a DELETE request logouts the user and deletes its token from the db .\
+**/token** endpoint with a POST request returns a new token .\
+**/new-user** endpoint with a POST request creates a new user .\
 
 ## Libraries used
 
